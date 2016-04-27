@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Component xmlns="http://www.red5studios.com/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.red5studios.com/ ../../../../schemas/component.xsd">
+	<Info
+		title="TornadoMonitor"
+		author="MAPA3M"
+		description=""
+		url=""
+		uiVersion="1000"
+	/>
+	
+	<Events>
+		<Event name="ON_COMPONENT_LOAD"			bind="OnComponentLoad" />
+		<Event name="MY_ENCOUNTER_ADDED"		bind="CheckMarker" />
+		<Event name="MY_ENCOUNTER_REMOVED"		bind="CheckMarker" />
+		<Event name="ON_MAP_MARKER_UPDATE"		bind="CheckMarker" />
+		<Event name="ON_ENCOUNTER_INFO"			bind="OnEncounterInfo" />
+		<Event name="MY_HUD_SHOW"				bind="OnHudShow" />
+	</Events>
+
+	<Styles>
+		<StyleSheet name="PopupHeader">
+			font:Demi_15; halign:left; valign:bottom; wrap:true; clip:false; padding:6;
+		</StyleSheet>
+		<StyleSheet name="PopupBody">
+			font:Demi_11; halign:left; valign:top; wrap:true; clip:false; padding:6;
+		</StyleSheet>
+	</Styles>
+
+	<Frames>
+		<PanelFrame name="Main" dimensions="center-x:50%+8; center-y:20%; width:600; height:60" visible="true" permanent="true" noclick="true" depth="-5"/>
+
+		<!-- The popup that shows up on the center, then fades -->
+		<PanelFrame name="Popup" dimensions="center-x:50%+8; center-y:20%; width:400; height:130" visible="true" permanent="true" noclick="true" depth="-5"><!-- PanelLayer4 -->
+			<Children>
+				<!-- POPWINDOW goes here -->
+				<Group id="PopupContents" dimensions="dock:fill">
+					<Group name="icon" dimensions="left:26; top:0; width:64; height:64">
+						<!-- Icon goes here -->
+					</Group>
+					<Group name="text" dimensions="left:100; top:5; bottom:100%; width:100%">
+						<Text name="header" dimensions="top:0; left:0; width:100%; height:30" class="PopupHeader"/>
+						<Text name="body" dimensions="top:30; left:0; width:100%; bottom:100%" class="PopupBody"/>
+					</Group>
+				</Group>
+			</Children>
+		</PanelFrame>
+	</Frames>
+</Component>
