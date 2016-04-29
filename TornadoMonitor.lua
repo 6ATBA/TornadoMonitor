@@ -100,6 +100,8 @@ function OnOptionChange(id, val)
 		io_enable = val
 
 		InterfaceOptions.DisableOption("DIFFERENCE", not val)
+		InterfaceOptions.DisableOption("POPUP", not val)
+		InterfaceOptions.DisableOption("SOUND", not val)
 		InterfaceOptions.DisableOption("DEBUG", not val)
 
 		if io_difference then
